@@ -49,19 +49,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 p-4 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-10 left-20 w-72 h-72 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
-      </div>
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background overlay for better contrast */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
       
-      <div className="absolute inset-0 bg-blue-900/5 backdrop-blur-sm"></div>
-      
-      <Card className="relative w-full max-w-md bg-white/90 backdrop-blur-lg shadow-2xl border-0 border-blue-200/50 hover:bg-white/95 transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+      <Card className="relative w-full max-w-md bg-white/90 backdrop-blur-lg shadow-2xl border-0 border-white/50 hover:bg-white/95 transition-all duration-300 hover:scale-105 hover:shadow-3xl z-10">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-20 h-20 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+          <div className="mx-auto w-20 h-20 bg-gradient-to-r from-red-500 to-blue-600 rounded-full flex items-center justify-center mb-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
             <span className="text-3xl">😂</span>
           </div>
           <div className="space-y-2">
@@ -71,10 +65,10 @@ const Login = () => {
               className="w-48 h-24 object-cover rounded-xl mx-auto shadow-md"
             />
           </div>
-          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent drop-shadow-sm">
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-red-600 via-purple-600 to-blue-700 bg-clip-text text-transparent drop-shadow-sm">
             Joke Generator
           </CardTitle>
-          <CardDescription className="text-blue-700 text-lg font-medium">
+          <CardDescription className="text-gray-700 text-lg font-medium">
             Welcome back! Ready for some professional laughs?
           </CardDescription>
         </CardHeader>
@@ -87,7 +81,7 @@ const Login = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-14 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-blue-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300"
+                className="h-14 bg-purple-50/50 border-purple-200 focus:border-purple-500 focus:ring-purple-500 text-gray-800 placeholder:text-purple-600/70 backdrop-blur-sm hover:bg-purple-50 transition-all duration-300"
               />
             </div>
             
@@ -97,7 +91,7 @@ const Login = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-14 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-blue-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300"
+                className="h-14 bg-purple-50/50 border-purple-200 focus:border-purple-500 focus:ring-purple-500 text-gray-800 placeholder:text-purple-600/70 backdrop-blur-sm hover:bg-purple-50 transition-all duration-300"
               />
             </div>
           </CardContent>
@@ -105,7 +99,7 @@ const Login = () => {
           <CardFooter className="flex flex-col space-y-6">
             <Button
               type="submit"
-              className="w-full h-14 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
+              className="w-full h-14 bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -118,11 +112,11 @@ const Login = () => {
               )}
             </Button>
             
-            <p className="text-center text-blue-700">
+            <p className="text-center text-gray-700">
               Don't have an account?{' '}
               <Link
                 to="/signup"
-                className="text-blue-600 hover:text-blue-800 font-bold transition-colors duration-300 hover:underline decoration-2 underline-offset-4"
+                className="text-purple-600 hover:text-purple-800 font-bold transition-colors duration-300 hover:underline decoration-2 underline-offset-4"
               >
                 Sign up here
               </Link>
