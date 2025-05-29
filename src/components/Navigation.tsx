@@ -24,42 +24,42 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 backdrop-blur-lg shadow-2xl border-b border-white/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/home" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center">
-              <span className="text-lg">😂</span>
+          <Link to="/home" className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 animate-pulse">
+              <span className="text-xl">😂</span>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-white via-yellow-200 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
               Joke Generator
             </span>
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
             <Link
               to="/home"
-              className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/home')
-                  ? 'bg-purple-100 text-purple-700'
-                  : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'
+                  ? 'bg-gradient-to-r from-yellow-400 to-pink-500 text-white shadow-lg scale-105'
+                  : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
-              <Home size={16} />
+              <Home size={18} />
               <span>Home</span>
             </Link>
             
             <Link
               to="/saved-jokes"
-              className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/saved-jokes')
-                  ? 'bg-purple-100 text-purple-700'
-                  : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50'
+                  ? 'bg-gradient-to-r from-pink-400 to-red-500 text-white shadow-lg scale-105'
+                  : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
-              <Heart size={16} />
+              <Heart size={18} />
               <span>Saved Jokes</span>
             </Link>
           </div>
@@ -67,36 +67,36 @@ const Navigation = () => {
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                <Avatar className="h-10 w-10">
-                  <AvatarFallback className="bg-gradient-to-r from-purple-500 to-blue-600 text-white">
+              <Button variant="ghost" className="relative h-12 w-12 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                <Avatar className="h-12 w-12 border-2 border-white/30 hover:border-yellow-400 transition-all duration-300">
+                  <AvatarFallback className="bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white font-bold text-lg">
                     {user?.name.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-              <div className="flex flex-col space-y-1 p-2">
-                <p className="text-sm font-medium leading-none">{user?.name}</p>
-                <p className="text-xs leading-none text-muted-foreground">{user?.email}</p>
+            <DropdownMenuContent className="w-64 bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl" align="end" forceMount>
+              <div className="flex flex-col space-y-1 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-t-lg">
+                <p className="text-sm font-bold text-gray-800">{user?.name}</p>
+                <p className="text-xs text-gray-600">{user?.email}</p>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/profile" className="cursor-pointer">
-                  <User className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
+                <Link to="/profile" className="cursor-pointer hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300">
+                  <User className="mr-3 h-5 w-5 text-purple-600" />
+                  <span className="font-medium">Profile</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/saved-jokes" className="cursor-pointer md:hidden">
-                  <Heart className="mr-2 h-4 w-4" />
-                  <span>Saved Jokes</span>
+                <Link to="/saved-jokes" className="cursor-pointer md:hidden hover:bg-gradient-to-r hover:from-pink-50 hover:to-red-50 transition-all duration-300">
+                  <Heart className="mr-3 h-5 w-5 text-pink-600" />
+                  <span className="font-medium">Saved Jokes</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
-                <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
+              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300">
+                <LogOut className="mr-3 h-5 w-5" />
+                <span className="font-medium">Log out</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
