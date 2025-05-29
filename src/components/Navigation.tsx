@@ -29,7 +29,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/home" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
               <span className="text-xl">😂</span>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 drop-shadow-lg">
@@ -43,7 +43,7 @@ const Navigation = () => {
               to="/home"
               className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/home')
-                  ? 'bg-gradient-to-r from-red-500 to-blue-600 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105'
                   : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
@@ -55,7 +55,7 @@ const Navigation = () => {
               to="/saved-jokes"
               className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/saved-jokes')
-                  ? 'bg-gradient-to-r from-red-500 to-blue-600 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105'
                   : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
@@ -69,32 +69,32 @@ const Navigation = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-12 w-12 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110">
                 <Avatar className="h-12 w-12 border-2 border-white/30 hover:border-white/50 transition-all duration-300">
-                  <AvatarFallback className="bg-gradient-to-r from-red-500 to-blue-600 text-white font-bold text-lg">
+                  <AvatarFallback className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg">
                     {user?.name.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-64 bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl" align="end" forceMount>
-              <div className="flex flex-col space-y-1 p-3 bg-gradient-to-r from-purple-50 to-white rounded-t-lg">
+              <div className="flex flex-col space-y-1 p-3 bg-gradient-to-r from-blue-50 to-white rounded-t-lg">
                 <p className="text-sm font-bold text-gray-800">{user?.name}</p>
                 <p className="text-xs text-gray-600">{user?.email}</p>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/profile" className="cursor-pointer hover:bg-gradient-to-r hover:from-purple-50 hover:to-white transition-all duration-300">
-                  <User className="mr-3 h-5 w-5 text-purple-600" />
+                <Link to="/profile" className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-white transition-all duration-300">
+                  <User className="mr-3 h-5 w-5 text-blue-600" />
                   <span className="font-medium">Profile</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/saved-jokes" className="cursor-pointer md:hidden hover:bg-gradient-to-r hover:from-purple-50 hover:to-white transition-all duration-300">
-                  <Heart className="mr-3 h-5 w-5 text-purple-600" />
+                <Link to="/saved-jokes" className="cursor-pointer md:hidden hover:bg-gradient-to-r hover:from-blue-50 hover:to-white transition-all duration-300">
+                  <Heart className="mr-3 h-5 w-5 text-blue-600" />
                   <span className="font-medium">Saved Jokes</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300">
+              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-all duration-300">
                 <LogOut className="mr-3 h-5 w-5" />
                 <span className="font-medium">Log out</span>
               </DropdownMenuItem>
