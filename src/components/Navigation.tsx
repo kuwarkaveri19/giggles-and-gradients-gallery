@@ -24,15 +24,15 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 backdrop-blur-lg shadow-2xl border-b border-white/20 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 backdrop-blur-lg shadow-xl border-b border-blue-200/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/home" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 animate-pulse">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
               <span className="text-xl">😂</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-white via-yellow-200 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+            <span className="text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
               Joke Generator
             </span>
           </Link>
@@ -43,7 +43,7 @@ const Navigation = () => {
               to="/home"
               className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/home')
-                  ? 'bg-gradient-to-r from-yellow-400 to-pink-500 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg scale-105'
                   : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
@@ -55,7 +55,7 @@ const Navigation = () => {
               to="/saved-jokes"
               className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium ${
                 isActive('/saved-jokes')
-                  ? 'bg-gradient-to-r from-pink-400 to-red-500 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg scale-105'
                   : 'text-white/90 hover:text-white hover:bg-white/20 hover:scale-105 hover:shadow-md'
               }`}
             >
@@ -68,28 +68,28 @@ const Navigation = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-12 w-12 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110">
-                <Avatar className="h-12 w-12 border-2 border-white/30 hover:border-yellow-400 transition-all duration-300">
-                  <AvatarFallback className="bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white font-bold text-lg">
+                <Avatar className="h-12 w-12 border-2 border-white/30 hover:border-blue-300 transition-all duration-300">
+                  <AvatarFallback className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white font-bold text-lg">
                     {user?.name.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64 bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl" align="end" forceMount>
-              <div className="flex flex-col space-y-1 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-t-lg">
-                <p className="text-sm font-bold text-gray-800">{user?.name}</p>
-                <p className="text-xs text-gray-600">{user?.email}</p>
+            <DropdownMenuContent className="w-64 bg-white/95 backdrop-blur-lg border-blue-200/20 shadow-2xl" align="end" forceMount>
+              <div className="flex flex-col space-y-1 p-3 bg-gradient-to-r from-blue-50 to-white rounded-t-lg">
+                <p className="text-sm font-bold text-blue-800">{user?.name}</p>
+                <p className="text-xs text-blue-600">{user?.email}</p>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/profile" className="cursor-pointer hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300">
-                  <User className="mr-3 h-5 w-5 text-purple-600" />
+                <Link to="/profile" className="cursor-pointer hover:bg-gradient-to-r hover:from-blue-50 hover:to-white transition-all duration-300">
+                  <User className="mr-3 h-5 w-5 text-blue-600" />
                   <span className="font-medium">Profile</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/saved-jokes" className="cursor-pointer md:hidden hover:bg-gradient-to-r hover:from-pink-50 hover:to-red-50 transition-all duration-300">
-                  <Heart className="mr-3 h-5 w-5 text-pink-600" />
+                <Link to="/saved-jokes" className="cursor-pointer md:hidden hover:bg-gradient-to-r hover:from-blue-50 hover:to-white transition-all duration-300">
+                  <Heart className="mr-3 h-5 w-5 text-blue-600" />
                   <span className="font-medium">Saved Jokes</span>
                 </Link>
               </DropdownMenuItem>
