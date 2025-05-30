@@ -51,9 +51,9 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background overlay for better contrast */}
-      <div className="absolute inset-0 bg-slate-100/15 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
       
-      <Card className="relative w-full max-w-md bg-slate-50/90 backdrop-blur-lg shadow-2xl border-0 border-slate-200/50 hover:bg-slate-50/95 transition-all duration-300 hover:scale-105 hover:shadow-3xl z-10">
+      <Card className="relative w-full max-w-md bg-white/90 backdrop-blur-lg shadow-2xl border-0 border-white/50 hover:bg-white/95 transition-all duration-300 hover:scale-105 hover:shadow-3xl z-10">
         <CardHeader className="text-center space-y-4">
           <div className="mx-auto w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
             <span className="text-3xl">😂</span>
@@ -65,10 +65,10 @@ const Login = () => {
               className="w-48 h-24 object-cover rounded-xl mx-auto shadow-md"
             />
           </div>
-          <CardTitle className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 bg-clip-text text-transparent drop-shadow-sm">
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 bg-clip-text text-transparent drop-shadow-sm">
             Joke Generator
           </CardTitle>
-          <CardDescription className="text-gray-700 text-xl font-medium">
+          <CardDescription className="text-gray-700 text-lg font-medium">
             Welcome back! Ready for some professional laughs?
           </CardDescription>
         </CardHeader>
@@ -81,7 +81,7 @@ const Login = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-16 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-gray-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300 text-lg"
+                className="h-14 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-gray-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300"
               />
             </div>
             
@@ -91,7 +91,7 @@ const Login = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-16 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-gray-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300 text-lg"
+                className="h-14 bg-blue-50/50 border-blue-200 focus:border-blue-500 focus:ring-blue-500 text-gray-800 placeholder:text-blue-600/70 backdrop-blur-sm hover:bg-blue-50 transition-all duration-300"
               />
             </div>
           </CardContent>
@@ -99,20 +99,20 @@ const Login = () => {
           <CardFooter className="flex flex-col space-y-6">
             <Button
               type="submit"
-              className="w-full h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-slate-50 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg text-lg"
+              className="w-full h-14 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
               disabled={isLoading}
             >
               {isLoading ? (
                 <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 border-2 border-slate-50/30 border-t-slate-50 rounded-full animate-spin"></div>
-                  <span className="text-lg">Signing in...</span>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <span>Signing in...</span>
                 </div>
               ) : (
                 "Sign In"
               )}
             </Button>
             
-            <p className="text-center text-gray-700 text-lg">
+            <p className="text-center text-gray-700">
               Don't have an account?{' '}
               <Link
                 to="/signup"

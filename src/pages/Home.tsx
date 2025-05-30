@@ -77,7 +77,7 @@ const Home = () => {
   return (
     <div className="min-h-screen relative">
       {/* Background overlay for better contrast */}
-      <div className="absolute inset-0 bg-slate-100/15 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
       
       <Navigation />
       
@@ -94,20 +94,20 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
           </div>
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-slate-50 via-blue-100 to-slate-200 bg-clip-text text-transparent drop-shadow-lg">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent drop-shadow-lg">
             Ready for Some Laughs?
           </h1>
-          <p className="text-slate-100 text-2xl font-medium max-w-2xl mx-auto drop-shadow-md">
+          <p className="text-white text-xl font-medium max-w-2xl mx-auto drop-shadow-md">
             Choose a topic and let's generate some amazing jokes! Professional humor for every occasion.
           </p>
         </div>
 
         {/* Topic Selection */}
-        <Card className="bg-slate-50/90 backdrop-blur-lg shadow-xl border-0 hover:shadow-2xl transition-all duration-300">
-          <CardHeader className="bg-gradient-to-r from-slate-100/95 to-slate-50/80 rounded-t-lg">
-            <CardTitle className="text-3xl text-gray-800 flex items-center gap-3">
+        <Card className="bg-white/90 backdrop-blur-lg shadow-xl border-0 hover:shadow-2xl transition-all duration-300">
+          <CardHeader className="bg-gradient-to-r from-white/95 to-white/80 rounded-t-lg">
+            <CardTitle className="text-2xl text-gray-800 flex items-center gap-3">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-slate-50 text-lg">🎯</span>
+                <span className="text-white text-lg">🎯</span>
               </div>
               Choose Your Topic
             </CardTitle>
@@ -118,9 +118,9 @@ const Home = () => {
                 <Badge
                   key={topic}
                   variant={selectedTopic === topic ? "default" : "outline"}
-                  className={`cursor-pointer px-6 py-3 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-md ${
+                  className={`cursor-pointer px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-md ${
                     selectedTopic === topic
-                      ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-slate-50 shadow-lg'
+                      ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg'
                       : 'border-blue-300 text-blue-700 hover:border-blue-500 hover:text-blue-800 hover:bg-blue-50'
                   }`}
                   onClick={() => handleTopicSelect(topic)}
@@ -131,10 +131,10 @@ const Home = () => {
               
               <Badge
                 variant="outline"
-                className="cursor-pointer px-6 py-3 text-lg font-medium border-dashed border-blue-400 text-blue-600 hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 hover:scale-105"
+                className="cursor-pointer px-6 py-3 text-sm font-medium border-dashed border-blue-400 text-blue-600 hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 hover:scale-105"
                 onClick={() => setShowCustomInput(true)}
               >
-                <Plus size={18} className="mr-2" />
+                <Plus size={16} className="mr-2" />
                 Custom Topic
               </Badge>
             </div>
@@ -146,11 +146,11 @@ const Home = () => {
                   value={customTopic}
                   onChange={(e) => setCustomTopic(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleCustomTopic()}
-                  className="flex-1 border-blue-300 focus:border-blue-500 focus:ring-blue-500 bg-slate-50 text-lg"
+                  className="flex-1 border-blue-300 focus:border-blue-500 focus:ring-blue-500 bg-white"
                 />
                 <Button 
                   onClick={handleCustomTopic}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-slate-50 px-6 text-lg"
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6"
                 >
                   Add
                 </Button>
@@ -160,7 +160,7 @@ const Home = () => {
         </Card>
 
         {/* Joke Display */}
-        <Card className="bg-slate-50/95 backdrop-blur-lg shadow-2xl border-0 min-h-[400px] hover:shadow-3xl transition-all duration-300">
+        <Card className="bg-white/95 backdrop-blur-lg shadow-2xl border-0 min-h-[400px] hover:shadow-3xl transition-all duration-300">
           <CardContent className="p-8">
             {isLoading ? (
               <div className="flex items-center justify-center h-64">
@@ -171,14 +171,14 @@ const Home = () => {
                     className="w-24 h-24 object-cover rounded-full mx-auto animate-pulse shadow-lg"
                   />
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                  <p className="text-gray-700 text-xl font-medium">Generating a hilarious joke...</p>
+                  <p className="text-gray-700 text-lg font-medium">Generating a hilarious joke...</p>
                 </div>
               </div>
             ) : currentJoke ? (
               <div className="space-y-8">
                 <div className="text-center space-y-6">
                   <div className="flex justify-center items-center gap-4">
-                    <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-slate-50 px-4 py-2 text-xl">
+                    <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 text-base">
                       {currentJoke.topic}
                     </Badge>
                     <img 
@@ -189,14 +189,14 @@ const Home = () => {
                   </div>
                   
                   <div className="space-y-6 max-w-3xl mx-auto">
-                    <div className="bg-gradient-to-r from-slate-100/95 to-blue-50/95 p-6 rounded-xl border border-blue-100">
-                      <p className="text-2xl text-gray-800 font-medium leading-relaxed">
+                    <div className="bg-gradient-to-r from-white/95 to-blue-50/95 p-6 rounded-xl border border-blue-100">
+                      <p className="text-xl text-gray-800 font-medium leading-relaxed">
                         {currentJoke.setup}
                       </p>
                     </div>
                     
-                    <div className="bg-gradient-to-r from-blue-50/95 to-slate-100/95 p-6 rounded-xl border border-blue-200 shadow-lg">
-                      <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent leading-relaxed">
+                    <div className="bg-gradient-to-r from-blue-50/95 to-white/95 p-6 rounded-xl border border-blue-200 shadow-lg">
+                      <p className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent leading-relaxed">
                         {currentJoke.punchline}
                       </p>
                     </div>
@@ -209,9 +209,9 @@ const Home = () => {
                     onClick={handleSaveJoke}
                     variant="outline"
                     size="lg"
-                    className="border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 hover:scale-105 px-6 text-lg"
+                    className="border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 hover:scale-105 px-6"
                   >
-                    <Heart size={22} className="mr-2" />
+                    <Heart size={20} className="mr-2" />
                     Save Joke
                   </Button>
                   
@@ -219,18 +219,18 @@ const Home = () => {
                     onClick={handleShareJoke}
                     variant="outline"
                     size="lg"
-                    className="border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 hover:scale-105 px-6 text-lg"
+                    className="border-blue-300 text-blue-600 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 hover:scale-105 px-6"
                   >
-                    <Share size={22} className="mr-2" />
+                    <Share size={20} className="mr-2" />
                     Share
                   </Button>
                   
                   <Button
                     onClick={handleNewJoke}
                     size="lg"
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-slate-50 transition-all duration-300 hover:scale-105 shadow-lg px-6 text-lg"
+                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white transition-all duration-300 hover:scale-105 shadow-lg px-6"
                   >
-                    <RefreshCw size={22} className="mr-2" />
+                    <RefreshCw size={20} className="mr-2" />
                     Another Joke
                   </Button>
                 </div>
@@ -242,7 +242,7 @@ const Home = () => {
                   alt="Welcome" 
                   className="w-48 h-32 object-cover rounded-xl mx-auto mb-6 shadow-lg"
                 />
-                <p className="text-xl">Click on a topic to generate your first joke!</p>
+                <p className="text-lg">Click on a topic to generate your first joke!</p>
               </div>
             )}
           </CardContent>
